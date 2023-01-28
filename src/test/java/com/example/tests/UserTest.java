@@ -11,14 +11,12 @@ public class UserTest {
         assertEquals(user.getLogin(), "me");
         assertEquals(user.getEmail(), "email@gmail.com");
     }
-
     @Test
     public void createEmptyUser(){
         User user = new User();
 
         assertNotNull(user);
     }
-
     @Test
     public void checkEmail(){
         User user = new User("me", "email@gmail.com");
@@ -27,7 +25,6 @@ public class UserTest {
                 user.getEmail().indexOf("@") == user.getEmail().lastIndexOf("@") &&
                 user.getEmail().indexOf(".") == user.getEmail().lastIndexOf("."));
     }
-
     @Test
     public void compareLoginAndEmail(){
         User user = new User("me", "email@gmail.com");
