@@ -1,29 +1,50 @@
 package com.example.tests;
 
-public class User {
-    private String login;
-    private String email;
+import java.util.Objects;
 
-    public User(String login, String email){
+public class User {
+    private final String login;
+    private String password;
+
+    public User(String login, String password){
         this.login = login;
-        this.email = email;
+        this.password = password;
     }
 
-    public User(){}
+    public User(String login){
+        this.login = login;
+    }
 
     public String getLogin() {
         return login;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public String getPassword() {
+        return password;
     }
 
-    public String getEmail() {
-        return email;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(login, user.login) && Objects.equals(password, user.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(login, password);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "login='" + login + '\'' +
+                ", email='" + password + '\'' +
+                '}';
     }
 }
