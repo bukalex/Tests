@@ -1,5 +1,6 @@
 package com.example.tests;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -16,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class UserServiceTest {
 
     @Mock
-    private UserRepository userRepository = new UserRepository();
+    private UserRepository userRepository;
 
     @InjectMocks
     private UserService userService;
@@ -52,6 +53,6 @@ public class UserServiceTest {
         userService.addUser("l2", "p2");
 
         assertArrayEquals(addLogins.toArray(), userService.getLogins().toArray());
-        Mockito.when(userService.getLogins()).thenReturn(addLogins);
+        //Mockito.when(userService.getLogins()).thenReturn(addLogins);
     }
 }

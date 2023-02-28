@@ -9,26 +9,21 @@ public class UserTest {
         User user = new User("me", "email@gmail.com");
 
         assertEquals(user.getLogin(), "me");
-        assertEquals(user.getEmail(), "email@gmail.com");
+        assertEquals(user.getPassword(), "email@gmail.com");
     }
-    @Test
-    public void createEmptyUser(){
-        User user = new User();
 
-        assertNotNull(user);
-    }
     @Test
     public void checkEmail(){
         User user = new User("me", "email@gmail.com");
 
-        assertTrue(user.getEmail().contains("@") && user.getEmail().contains(".") &&
-                user.getEmail().indexOf("@") == user.getEmail().lastIndexOf("@") &&
-                user.getEmail().indexOf(".") == user.getEmail().lastIndexOf("."));
+        assertTrue(user.getPassword().contains("@") && user.getPassword().contains(".") &&
+                user.getPassword().indexOf("@") == user.getPassword().lastIndexOf("@") &&
+                user.getPassword().indexOf(".") == user.getPassword().lastIndexOf("."));
     }
     @Test
     public void compareLoginAndEmail(){
         User user = new User("me", "email@gmail.com");
 
-        assertNotEquals(user.getEmail(), user.getLogin());
+        assertNotEquals(user.getPassword(), user.getLogin());
     }
 }

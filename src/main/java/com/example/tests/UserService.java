@@ -11,10 +11,11 @@ public class UserService {
     }
 
     public List<String> getLogins(){
+        //System.out.println(userRepository.getUsers().size());
         return userRepository.getUsers().stream().map(x -> x.getLogin()).collect(Collectors.toList());
     }
 
-    public void addUser(String login, String password){
+    public String addUser(String login, String password){
         if (login == null || login.isEmpty() || login.isBlank() ||
                 password == null || password.isEmpty() || password.isBlank()){
             throw new IllegalArgumentException("Неверные входные данные");
@@ -25,5 +26,6 @@ public class UserService {
         }
 
         userRepository.addUser(new User(login, password));
+        return login + password;
     }
 }
